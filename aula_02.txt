@@ -1,0 +1,12 @@
+MVC
+	M -> Model. Armazenamento de dados. Classes PHP
+	V -> View. Interface/Código HTML
+	C -> Controller. Toma as decisões, interpreta e valida os dados. Interage com a View e Model. Rotas PHP
+
+Estrutura de Diretórios
+	Nunca mexer na pasta system. Se alterações forem necessárias, mexer na pasta application > core
+	Helpers -> Ajudam em alguma funcionalidade
+	Hooks -> Modificações no CI que não seja do core nativo
+	Language -> Dicionário de idioma para várias línguas no site
+	Libraries -> Bibliotecas criadas para o projeto
+	Third_party -> Armazena o código de terceiros
