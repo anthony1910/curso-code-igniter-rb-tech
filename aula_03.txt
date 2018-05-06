@@ -1,0 +1,12 @@
+Controller
+	Método index() não precisa ser chamado. É o método padrão, assim como o main() no C#
+
+Pasta controller > config mostra as configurações padrão do projeto
+
+Chamamos outros controllers e métodos com URL. Ex: url.com/index.php/controller/metodo
+
+Ao chamar uma URL, preciso adicionar /index.php/ antes do nome do controller para o CI encontrá-lo
+
+Arquivo de view precisa ser com a extensão .php
+
+Arquivos de model também precisam estar com a extensão .php. É recomendado que esses arquivos estejam com _model.php ao fim de seu nome por convenção
