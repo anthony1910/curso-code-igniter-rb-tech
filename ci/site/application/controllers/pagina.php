@@ -18,4 +18,34 @@ class Pagina extends CI_Controller { // Nome do arquivo e da classe deve ser o m
 		$this->load->view("home", $dados);
 	}
 
+	public function gallery()
+	{
+		$dados['titulo'] = "Anthony Rafael - Galeria";
+		$this->load->view("gallery", $dados);
+	}
+
+	public function grid()
+	{
+		$dados['titulo'] = "Anthony Rafael - Grid";
+		$this->load->view("grid", $dados);
+	}
+
+	public function left()
+	{
+		$dados['titulo'] = "Anthony Rafael - Left";
+		$this->load->view("left", $dados);
+	}
+
+	public function right()
+	{
+		$dados['titulo'] = "Anthony Rafael - Right";
+		$this->load->view("right", $dados);
+	}
+
+	public function width()
+	{
+		$dados['titulo'] = "Anthony Rafael - Width";
+		$this->load->view("width", $dados);
+	}
+
 }

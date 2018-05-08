@@ -1,4 +1,4 @@
-<?php require_once("header.php"); ?>
+<?php $this->load->view("header"); ?>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -12,18 +12,18 @@
         <figure>
           <header class="heading">Gallery Title Goes Here</header>
           <ul class="nospace clear">
-            <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
+            <li class="one_quarter first"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter first"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter first"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
+            <li class="one_quarter"><a href="#"><img src="<?php echo base_url('assets/images/demo/gallery/01.png'); ?>" alt=""></a></li>
           </ul>
           <figcaption>Gallery Description Goes Here</figcaption>
         </figure>
@@ -54,4 +54,4 @@
   </main>
 </div>
 <!-- ################################################################################################ -->
-<?php require_once("footer.php"); ?>
+<?php $this->load->view("footer"); ?>

@@ -52,3 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'pagina';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['gallery'] = 'pagina/gallery';
+$route['width'] = 'pagina/width';
+$route['left'] = 'pagina/left';
+$route['right'] = 'pagina/right';
+$route['grid'] = 'pagina/grid';

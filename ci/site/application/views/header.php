@@ -40,10 +40,10 @@ Licence URI: http://www.os-templates.com/template-terms
           <li><a class="drop" href="#">Pages</a>
             <ul>
               <li><a href="<?php echo base_url('gallery'); ?>">Gallery</a></li>
-              <li><a href="<?php echo base_url('full-width'); ?>">Full Width</a></li>
-              <li><a href="<?php echo base_url('sidebar-left'); ?>">Sidebar Left</a></li>
-              <li><a href="<?php echo base_url('sidebar-right'); ?>">Sidebar Right</a></li>
-              <li><a href="<?php echo base_url('basic-grid'); ?>">Basic Grid</a></li>
+              <li><a href="<?php echo base_url('width'); ?>">Full Width</a></li>
+              <li><a href="<?php echo base_url('left'); ?>">Sidebar Left</a></li>
+              <li><a href="<?php echo base_url('right'); ?>">Sidebar Right</a></li>
+              <li><a href="<?php echo base_url('grid'); ?>">Basic Grid</a></li>
             </ul>
           </li>
           <li><a class="drop" href="#">Dropdown</a>
