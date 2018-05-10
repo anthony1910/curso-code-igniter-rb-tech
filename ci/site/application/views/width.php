@@ -101,8 +101,33 @@
             </article>
           </li>
         </ul>
-        <h2>Write A Comment</h2>
-        <form action="#" method="post">
+        <h2>Envie uma mensagem</h2>
+        <?php
+
+          if ($formerror) {
+            echo "<p>" . $formerror . "</p>";
+          }
+
+          echo form_open("pagina/width");
+
+          echo form_label("Seu nome:", "nome");
+          echo form_input("nome", set_value("nome"));
+
+          echo form_label("Seu email:", "email");
+          echo form_input("email", set_value("email"));
+
+          echo form_label("Assunto:", "assunto");
+          echo form_input("assunto", set_value("assunto"));
+
+          echo form_label("Mensagem:", "mensagem");
+          echo form_textarea("mensagem", set_value("mensagem"));
+
+          echo form_submit("enviar", "Enviar mensagem", array("style"=>"margin-top: 10px;"));
+
+          echo form_close();
+
+        ?>
+        <!-- <form action="#" method="post">
           <div class="one_third first">
             <label for="name">Name <span>*</span></label>
             <input type="text" name="name" id="name" value="" size="22" required>
@@ -124,7 +149,7 @@
             &nbsp;
             <input type="reset" name="reset" value="Reset Form">
           </div>
-        </form>
+        </form> -->
       </div>
       <!-- ################################################################################################ -->
     </div>

@@ -1,0 +1,13 @@
+CI - Formulários
+	echo form_open("action_do_formulario"); -> Cria o formulário
+	echo form_close(); -> Fecha o formulário
+	echo form_label("Texto da label", "Campo que ela irá se referir", "Atributos"); -> Cria uma label
+	echo form_input("nome_do_campo", "valor_do_campo", "atributos(ex: classes ou ids)"); -> Cria um input
+	echo form_textarea("nome_do_campo", "valor_do_campo", "atributos"); -> Cria um textarea
+	echo form_submit("nome_do_botão", "valor_do_botão"); -> Cria o botão submit
+$this->load->library(); -> Carrega uma biblioteca
+$this->form_validation->set_rules("nome_do_campo", "série_de_regras(disponíveis na documentação)"); -> define as regras de validação dos formulários
+$this->form_validation->run(); -> Responsável por executar a validação
+validation_errors(); -> Traz todos os erros de validação
+
+Configuração de linguagem -> application/config/config.php -> $config['language'] define isso

@@ -44,8 +44,36 @@ class Pagina extends CI_Controller { // Nome do arquivo e da classe deve ser o m
 
 	public function width()
 	{
+		$this->load->helper("form");
+		$this->load->library(array("form_validation", "email")); // Chamando uma biblioteca do CI
+		
+		// Regras de validação do formulário
+		$this->form_validation->set_rules("nome", "Nome", "trim|required");
+		$this->form_validation->set_rules("email", "Email", "trim|required|valid_email");
+		$this->form_validation->set_rules("assunto", "Assunto", "trim|required");
+		$this->form_validation->set_rules("mensagem", "Mensagem", "trim|required");
+		// Teste da validação
+		if ($this->form_validation->run() === FALSE) {
+			$dados['formerror'] = validation_errors();
+		} else {
+
+			$dados_form = $this->input->post(); // Recupera os valores do formulário
+
+			$this->email->from($dados_form['email'], $dados_form['nome']);
+			$this->email->to("anthonyribeiro1910@gmail.com");
+			$this->email->subject($dados_form['assunto']);
+			$this->email->message($dados_form['mensagem']);
+
+			if ($this->email->send()) {
+				$dados['formerror'] = "Email enviado com sucesso!";
+			} else {
+				$dados['formerror'] = "Erro ao enviar o email";
+			}		
+
+		}
+
 		$dados['titulo'] = "Anthony Rafael - Width";
-		$this->load->view("width", $dados);
+		$this->load->view("width", $dados);		
 	}
 
 }
