@@ -35,7 +35,7 @@ $config['base_url'] = 'http://cursos.local.com/php/curso-code-igniter-rb-tech/ci
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = ''; // Muda o índice na página. Bom retirar para não ficar aparecendo o arquivo na URL
 
 /*
 |--------------------------------------------------------------------------

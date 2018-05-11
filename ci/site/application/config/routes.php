@@ -57,3 +57,7 @@ $route['width'] = 'pagina/width';
 $route['left'] = 'pagina/left';
 $route['right'] = 'pagina/right';
 $route['grid'] = 'pagina/grid';
+$route['post'] = 'pagina';
+$route['post/(:num)'] = 'pagina/post/$1'; // (:num) -> Define parâmetro na URL; $1 -> Seleciona o valor do primeiro parâmetro
+$route['login'] = 'setup/login';
+$route['painel'] = 'setup/login';

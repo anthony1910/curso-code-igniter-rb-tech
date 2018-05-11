@@ -1,0 +1,5 @@
+Vídeo
+	Fazer a configuração do Banco de Dados depois. Está a partir do minuto 7:00
+	Minuto 26:30 - Dado é inserido no Banco
+
+Helper -> Quando for criar um helper personalizado, é necessário definir sufixo _helper para que o CI o encontre
