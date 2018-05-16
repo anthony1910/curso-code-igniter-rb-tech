@@ -45,7 +45,7 @@ class Setup extends CI_Controller {
 		$this->form_validation->set_rules("login", "NOME", "trim|required|min_length[5]");
 		$this->form_validation->set_rules("email", "EMAIL", "trim|required|valid_email");
 		$this->form_validation->set_rules("senha", "SENHA", "trim|required|min_length[6]");
-		$this->form_validation->set_rules("senha2", "REPITA A SENHA", "trim|required|min_length[6]", "matches[senha]");
+		$this->form_validation->set_rules("senha2", "REPITA A SENHA", "trim|required|min_length[6]|matches[senha]");
 
 		// verifica a validação
 		if ($this->form_validation->run() === FALSE) {
@@ -109,7 +109,7 @@ class Setup extends CI_Controller {
 					$this->session->set_userdata("user_email", $this->option->get_option("user_email"));
 
 					// fazer redirect para a home do painel
-					var_dump($_SESSION);
+					redirect("setup/alterar");
 				} else {
 					// senha incorreta
 					set_msg("Senha está incorreta!");
@@ -125,6 +125,64 @@ class Setup extends CI_Controller {
 		$dados['titulo'] = "Anthony Rafael - Acesso ao Sistema";
 		$dados['h2'] = "Acessar o painel";
 		$this->load->view("painel/login", $dados);
+
+	}
+
+	public function alterar() {
+
+		// verificar o login do usuário
+		verifica_login();
+
+		// regras de validação
+		$this->form_validation->set_rules("login", "NOME", "trim|required|min_length[5]");
+		$this->form_validation->set_rules("email", "EMAIL", "trim|required|valid_email");
+		$this->form_validation->set_rules("senha", "SENHA", "trim|min_length[6]");
+
+		if (isset($_POST['senha']) && $_POST['senha'] != '') {
+			$this->form_validation->set_rules("senha2", "REPITA A SENHA", "trim|required|min_length[6]|matches[senha]");
+		}
+
+		if ($this->form_validation->run() === FALSE) {
+
+			if (validation_errors()) {
+				set_msg(validation_errors());
+			}
+
+		} else {
+
+			$dados_form = $this->input->form();
+
+			$this->option->update_option("user_login", $dados_form['login']);
+			$this->option->update_option("user_email", $dados_form['email']);
+			$this->option->update_option("nome_site", $dados_form['nome_site']);
+
+			if (isset($dados_form['senha']) && $dados_form['senha'] != '') {
+				$this->option->update_option("user_pass", password_hash($dados_form['senha'], PASSWORD_DEFAULT));
+			}
+
+			set_msg("Dados alterados com sucesso!");
+
+		}
+
+		// carrega a view
+		$_POST['login'] = $this->option->get_option("user_login");
+		$_POST['email'] = $this->option->get_option("user_email");
+		$_POST['nome_site'] = $this->option->get_option("nome_site");
+		$dados['titulo'] = "Anthony Rafael - Configuração do Sistema";
+		$dados['h2'] = "Alterar configuração básica";
+		$this->load->view("painel/config", $dados);
+
+	}
+
+	public function logout() {
+
+		// destrói dados da sessão
+		$this->session->unset_userdata('logged');
+		$this->session->unset_userdata('user_login');
+		$this->session->unset_userdata('user_email');
+		
+		set_msg("Você saiu do Sistema");
+		redirect("setup/login");
 
 	}
 

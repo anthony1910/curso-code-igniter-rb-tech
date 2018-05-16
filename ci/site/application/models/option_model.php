@@ -10,7 +10,7 @@ class Option_model extends CI_Model {
 
 	}
 
-	public function get_option($option_name)
+	public function get_option($option_name, $default_value = NULL)
 	{
 
 		$this->db->where('option_name', $option_name);
@@ -24,7 +24,7 @@ class Option_model extends CI_Model {
 			return $row->option_value;
 
 		} else {
-			return NULL;
+			return $default_value;
 		}
 
 	}

@@ -10,6 +10,8 @@ class Pagina extends CI_Controller { // Nome do arquivo e da classe deve ser o m
 
 		$this->load->helper("url"); // Esse helper me ajuda a usa a URL base do meu projeto para chamar arquivos, com a função base_url()
 
+		$this->load->model("option_model", "option");
+
 	}
 
 	public function index()
