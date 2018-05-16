@@ -1,0 +1,5 @@
+CI DB
+	Insert -> uso método $this->db->insert($nome_da_tabela, $array_de_dados);
+	Setar novo valor -> uso método $this->db->set($nome_do_campo_a_ser_atualizado, $novo_valor);
+	Update -> uso método $this->db->update($nome_da_tabela);
+	$this->db->affected_rows(); -> retorna o número de linhas afetadas por uma query. Útil para verificações
