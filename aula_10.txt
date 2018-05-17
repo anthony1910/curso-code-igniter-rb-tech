@@ -1,0 +1,13 @@
+CI Helper URL
+	função anchor($link, "texto_que_aparecerá_na_tag", $array_de_opcoes) -> Cria um link para a url
+
+CI Form
+	form_open_multipart() -> função que cria formulários multipart, para upload de arquivos
+	form_upload("name_do_input") -> função que cria input de file
+
+	$this->upload->do_upload("nome_do_campo") -> Mostra se o upload foi feito
+	$this->upload->data() -> Método que mostra os dados do arquivo adicionado ao servidor
+
+CI DB
+	$this->db->insert("nome_da_tabela", $array_de_dados_para_inserir) -> Método que insere dados no Banco
+	$this->db->order_by("nome_do_campo", "método(DESC_ou_ASC)") -> Método que gera o order by no Banco
