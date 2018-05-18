@@ -78,4 +78,25 @@ class Pagina extends CI_Controller { // Nome do arquivo e da classe deve ser o m
 		$this->load->view("width", $dados);		
 	}
 
+	public function post()
+	{
+
+		if ($id = $this->uri->segment(2) > 0) {
+
+			if ($noticia = $this->noticia->get_single($id)) {
+
+				$dados['titulo'] = $noticia->titulo;
+				$dados['conteudo'] = $noticia->conteudo;
+
+			} else {
+
+				$dados['titulo'] = "Não encontrado";
+				$dados['conteudo'] = "Não encontrado";
+
+			}
+
+		}
+
+	}
+
 }

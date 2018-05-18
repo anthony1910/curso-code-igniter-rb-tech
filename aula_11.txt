@@ -1,0 +1,5 @@
+CI Template
+	Ao passar um array para a view, não $variavel.campo, uso $variavel->campo
+
+CI SQL
+	$this->db->delete("nome_da_tabela"); -> Exclui dados do Banco

@@ -15,7 +15,14 @@ class Noticia_model extends CI_Model {
 
 		if (isset($dados['id']) && $dados['id'] > 0) {
 
-			// noticia já existe, devo editar			
+			// noticia já existe, devo editar
+			$this->db->where("id", $dados['id']);
+
+			unset($dados['id']);
+
+			$this->db->update("noticias", $dados);
+
+			return $this->db->affected_rows();
 
 		} else {
 
@@ -59,6 +66,36 @@ class Noticia_model extends CI_Model {
 			}
 
 		}
+
+	}
+
+	public function get_single($id = 0)
+	{
+
+		$this->db->where("id", $id);
+
+		$query = $this->db->get("noticias", 1);
+
+		if ($query->num_rows() > 0) {
+
+			$row = $query->row();
+
+			return $row;
+
+		} else {
+			return NULL;
+		}
+
+	}
+
+	public function excluir($id = 0)
+	{
+
+		$this->db->where("id", $id);
+
+		$this->db->delete("noticias");
+
+		return $this->db->affected_rows();
 
 	}
 

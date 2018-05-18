@@ -96,4 +96,139 @@ class Noticia extends CI_Controller {
 
 	}
 
+	public function excluir()
+	{
+
+		verifica_login();
+
+		// verifica se o id da noticia foi informado
+		if ($id = $this->uri->segment(3) > 0) {
+
+			if ($noticia = $this->noticia->get_single($id)) {
+
+				$dados['noticia'] = $noticia;
+
+			} else {
+
+				set_msg("Notícia inexistente");
+				redirect("noticia/listar");
+
+			}
+
+		} else {
+			set_msg("Você deve escolher uma notícia para excluir");
+			redirect("noticia/listar");
+		}
+
+		$this->form_validation->set_rules("enviar", "ENVIAR", "trim|required");
+
+		 if ($this->form_validation->run() === FALSE) {
+
+		 	if (validation_errors()) {
+		 		set_msg(validation_errors());
+		 	}
+
+		 } else {
+
+		 	$imagem = 'uploads/' . $noticia->imagem;
+
+		 	if ($this->noticia->excluir($id)) {
+
+		 		unlink($imagem);
+
+		 		set_msg("Notícia excluída");
+
+		 		redirect("noticia/listar");
+
+		 	} else {
+		 		set_msg("Não excluiu")
+		 	}
+
+		 }
+
+		$dados['titulo'] = "Anthony Rafael - Cadastro de Notícias";
+		$dados['h2'] = "Cadastro de Notícias";
+		$dados['tela'] = "cadastrar";
+		$this->load->view("excluir", $dados);
+
+	}
+
+	public function editar()
+	{
+
+		verifica_login();
+
+		if ($id = $this->uri->segment(3) > 0) {
+
+			if ($noticia = $this->noticia->get_single($id)) {
+
+				$dados['noticia'] = $noticia;
+
+				$dados_update['id'] = $noticia->id;
+
+			} else {
+
+				set_msg("Notícia inexistente");
+				redirect("noticia/listar");
+
+			}
+
+		} else {
+			set_msg("Você deve escolher uma notícia para editar");
+			redirect("noticia/listar");
+		}
+
+		$this->form_validation->set_rules("titulo", "TÍTULO", "trim|required");
+		$this->form_validation->set_rules("conteudo", "CONTEÚDO", "trim|required");
+
+		if ($this->form_validation->run() === FALSE) {
+
+			if (validation_errors()) {
+				set_msg(validation_errors());
+			} else {
+
+				$this->load->library("upload", config_upload());
+
+				if (isset($_FILES['imagem']) && $_FILES['imagem']['name'] !== '') {
+
+					if ($this->upload->do_upload("imagem")) {
+
+						$imagem_antiga = 'uploads/' . $noticia->imagem;
+
+						$dados_upload = $this->upload->data();
+
+						$dados_form = $this->input->post();
+
+						if ($this->noticia->salvar($dados_update)) {
+
+							unlink($imagem_antiga);
+
+							set_msg("Notícia alterada");
+
+							$dados['noticia']->imagem = $dados_update['imagem']
+
+						} else {
+							set_msg("Falhou");
+						}
+
+					} else {
+
+						$msg = $this->upload->display_errors();
+
+						set_msg($msg);
+
+					}
+
+				} else {
+
+					
+
+				}
+
+			}
+
+		}
+
+	}
+
 }
